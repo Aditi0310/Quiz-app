@@ -1,0 +1,93 @@
+
+.mainContainer{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.innerContainer{
+    
+    background: linear-gradient(180deg, rgba(175, 156, 243, 0.00) 7.92%, #AF9CF3 86.48%);
+    background-blend-mode: multiply;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 720px;
+    width: 400px;
+}
+.logo{
+    width: 100px;
+}
+.logo-container{
+   
+    
+   
+}
+.quiz-container{
+    height: 150px;
+    width: 150px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.start-button{
+    background-color: #FF3B3f;
+    border-radius: 80px;
+    border: none;
+    width: 200px;
+    height: 50px;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+.quizContainer{
+    height: 720px;
+    width: 400px;
+    background-color: #AF9CF3;
+    display: flex;
+    flex-direction: column;
+}
+.innerQuizContainer{
+    background-color: #EEE;
+    height: 650px;
+    margin-top: auto;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    overflow-y: auto;
+    position: relative;
+}
+.optionComponent{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: #f3f4fa;
+    border-radius: 10px;
+    width: 85%;
+    margin-bottom: 10px;
+}
+.checkbox-round{
+    width: 15px;
+
+    border-radius: 20px;
+}
+.quiz-button{
+    background-color: #FF3B3f;
+    border-radius: 80px;
+    border: none;
+    width: 200px;
+    height: 50px;
+    color: #FFFFFF;
+    font-weight: 600;
+    position: fixed;
+    bottom: 5%;
+    margin-left: 100px;
+}
+.resultContainer{
+    
+}
