@@ -7,15 +7,17 @@ import Result from './pages/resultPage'
 
 function App() {
   const [pageFirst, setPage] = useState(true);
-  const [questions, setQuestions] = useState([]);
-  const {start, exit} = useContext(QuizContext);
+  
+  const {start, exit, questions, setQuestions} = useContext(QuizContext);
   useEffect(() => {
-    fetch("https://80e1c9dc-5b7e-456b-b769-3c3a19369586.mock.pstmn.io/getQues")
+     fetch("https://80e1c9dc-5b7e-456b-b769-3c3a19369586.mock.pstmn.io/getQues")
     .then(function(res) {
       return res.json()
     })
-    .then(function(res) {
-      console.log(res)
+    .then( function(res) {
+      setQuestions(res);
+      console.log(res);
+      console.log("q-",questions);
     })
     .catch(err => console.log("Couldn't able to fetch the data due to the error", err))
   },[])
