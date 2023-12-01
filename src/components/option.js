@@ -1,7 +1,8 @@
-import React,{useState} from "react";
+import React,{useContext, useState} from "react";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import { makeStyles } from '@mui/styles';
+import { QuizContext } from "../context/context";
 
 const useStyles = makeStyles({
     optionComponent:{
@@ -10,10 +11,11 @@ const useStyles = makeStyles({
         height: "50px",
         backgroundColor: "#f3f4fa",
         borderRadius: "10px",
-        width: "85%",
-        marginBottom: "10px",
+        width: "260px",
+        marginBottom: "5px",
         border:"1px solid grey",
-        
+        marginTop:"10px",
+        paddingLeft:"15px"
     },
     optionComponent2:{
         display: "flex",
@@ -21,20 +23,25 @@ const useStyles = makeStyles({
         height: "50px",
         backgroundColor: "#f3f4fa",
         borderRadius: "10px",
-        width: "85%",
-        marginBottom: "10px",
-        border:"1px solid green"
+        width: "260px",
+        marginBottom: "5px",
+        border:"1px solid green",
+        marginTop:"10px",
+        paddingLeft:"15px"
+        
+
+        
     }
   });
 
 function Option({option}){
     const classes = useStyles();
-    const [changed, setChanged] = useState(false);
+    const {changedOption, setChangedOption} = useContext(QuizContext);
     return(
-        <div className={changed ? classes.optionComponent2 : classes.optionComponent} onClick={() => setChanged(!changed)}>
-            {changed ? <CheckCircleOutlineIcon style={{color:"green"}}/> : <RadioButtonUncheckedIcon style={{color:"#cccccc"}}/>
+        <div className={changedOption ? classes.optionComponent2 : classes.optionComponent} >
+            {changedOption ? <CheckCircleOutlineIcon style={{color:"green"}}/> : <RadioButtonUncheckedIcon style={{color:"#cccccc"}}/>
              }
-            <p>{option}</p>
+            <p style={{marginLeft:"20px"}}>{option}</p>
         </div>
     )
 }

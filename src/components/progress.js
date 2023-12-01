@@ -19,16 +19,19 @@ import "react-circular-progressbar/dist/styles.css";
 
 const percentage = 66;
 const text = 1;
-const App = ({index}) => {
+const App = ({index, circleRatio, rot, width}) => {
   return(
 
     
-    <div style={{width:"23%"}}>
-      <CircularProgressbar value={percentage} text={`${index+1}/5`} background backgroundPadding={6} styles={buildStyles({
+    <div style={{width:width}}>
+      <CircularProgressbar value={percentage} text={`${index+1}/5`} background backgroundPadding={6} 
+      circleRatio={circleRatio}
+      styles={buildStyles({
+          rotation:  rot,
           textColor: "black",
           textSize:"30",
-          pathColor: "turquoise",
-          backgroundColor:"#fff"
+          pathColor: "#44B77B",
+          backgroundColor:"#fff" 
         })}/>
    </div>
     
