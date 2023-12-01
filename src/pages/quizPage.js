@@ -4,10 +4,28 @@ import Option from '../components/option'
 import Image1 from '../images/image1.png'
 import Progress from '../components/progress'
 import { QuizContext } from '../context/context'
+import { makeStyles } from '@mui/styles';
 
-
+const useStyles = makeStyles({
+    progressContainer:{
+        position:"absolute", 
+        marginTop:"50px", 
+        display:"flex", 
+        alignItems:"center", 
+        justifyContent:"center", 
+        zIndex:10, 
+        marginLeft:"40px"
+    },
+    questionContainer:{
+        fontWeight:600, 
+        textAlign:"center", 
+        marginTop:"50px", 
+        marginBottom:"20px"
+    }
+})
 
 function App() {
+    const classes = useStyles();
     const [index, setIndex] = useState(0);
 
     const [ans, setAns] = useState([]);
@@ -59,20 +77,17 @@ function App() {
        console.log(newArr);
        setChangedOption(newArr);
        ans.push(index);
-       
-        //console.log(ans);
-        
     }
     return (
         
         <div className='quizContainer'>
             
             <img src={Image1}/>
-            <div style={{position:"absolute", marginTop:"50px", display:"flex", alignItems:"center", justifyContent:"center", zIndex:10, marginLeft:"40px"}}>
+            <div className={classes.progressContainer}>
                 <Progress index={index} circleRatio={1} width="27%" type="quiz"/>
             </div>
             <div className='innerQuizContainer' style={{display:"flex", flexDirection:"column", alignItems:"center", paddingLeft:"15px", paddingRight:"15px"}}>
-                <p className='question' style={{fontWeight:600, textAlign:"center", marginTop:"50px", marginBottom:"20px"}}>{questions[index].question}</p>
+                <p className={classes.questionContainer} >{questions[index].question}</p>
                 
                 {questions[index].image ? <img src={questions[index].image} style={{width:"150px"}}/> : null}
                 {questions[index]?.options.map((option, i) => (

@@ -49,6 +49,9 @@ body{
     color: #FFFFFF;
     font-weight: 600;
 }
+.start-button:hover{
+    background-color: #FF7f7f;
+}
 .quizContainer{
     height: 720px;
     width: 400px;
@@ -90,6 +93,9 @@ body{
     position: fixed;
     top: 85%
    
+}
+.quiz-button:hover{
+    background-color: #AF9CF3;
 }
 .resultContainer{
     
