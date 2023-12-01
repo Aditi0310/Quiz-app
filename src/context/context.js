@@ -6,8 +6,8 @@ const QuizContext = createContext();
 export default function Quiz(props){
     const [start, setStart] = useState(false); 
     const [exit, setExit] = useState(false);
-    const [score, setScore] = useState([]);
-    const [changedOption, setChangedOption] = useState(false);
+    const [score, setScore] = useState(0);
+    const [changedOption, setChangedOption] = useState([false, false, false, false, false]);
     /*let arr = new Array[5];
     for(let i=0 ; i<5; i++){
         arr[i] = 0;

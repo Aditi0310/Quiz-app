@@ -14,21 +14,24 @@ function App() {
     const [result, setResult] = useState(false);
     const [ans, setAns] = useState([]);
 
-    const {score, setScore, exit, setExit,changed, setChangedOption} = useContext(QuizContext);
+    const {score, setScore, exit, setExit,changedOption, setChangedOption} = useContext(QuizContext);
 
     
     const checkCorrect = () => {
         let arr = question.answer;
         let curr_score = 1;
         ans.sort();
+        if(ans.length != arr.length) return -1;
         for(let i=0 ; i<arr.length ; i++){
-            if(arr[i] != ans[i]) curr_score = 0;
+            if(arr[i] != ans[i]) return -1;
         }
-        score.push(curr_score);
-        console.log(score);
+        return 1;
+        
     }
     const update = async () => {
-        await checkCorrect();
+        let answer = await checkCorrect();
+        console.log("ans-", answer);
+        if(answer == 1) setScore(score+1);
         if(index+1 == QuizData.length){
             setExit(true);
         }
@@ -37,15 +40,25 @@ function App() {
             setQuestion(QuizData[index]);
         }
         setAns([]);
-        setChangedOption(false);
+        setChangedOption([false, false, false, false, false]);
     }
    
     const checkAnswer =  (index) => {
-       // console.log(ans);
-       setChangedOption(!changed);
-         ans.push(index);
+        //updating array
+       const newArr = changedOption.map((m, i) => {
+        if(i == index){
+            return !m;
+        }
+        else{
+            return m;
+        }
+       });
        
-        console.log(ans);
+       console.log(newArr);
+       setChangedOption(newArr);
+        ans.push(index);
+       
+        //console.log(ans);
         
     }
     return (
@@ -54,14 +67,15 @@ function App() {
             
             <img src={Image1}/>
             <div style={{position:"absolute", marginTop:"50px", display:"flex", alignItems:"center", justifyContent:"center", zIndex:10, marginLeft:"40px"}}>
-                <Progress index={index} circleRatio={1} width="27%"/>
+                <Progress index={index} circleRatio={1} width="27%" type="quiz"/>
             </div>
             <div className='innerQuizContainer' style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
-                <p className='question' style={{fontWeight:600, textAlign:"center", marginTop:"50px", marginBottom:"30px"}}>{question.question}</p>
+                <p className='question' style={{fontWeight:600, textAlign:"center", marginTop:"50px", marginBottom:"20px"}}>{question.question}</p>
                 {question.image ? <img src={question.image} style={{width:"150px"}}/> : null}
                 {question.options.map((option, i) => (
                     <div key={i} onClick={() => checkAnswer(i)}>
-                    <Option option={option} />
+                        <Option option={option} index={i} />
+                        
                     </div>
                 ))}
                 

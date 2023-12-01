@@ -1,4 +1,4 @@
-import React,{useContext, useState} from "react";
+import React,{useContext, useEffect, useState} from "react";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import { makeStyles } from '@mui/styles';
@@ -15,7 +15,10 @@ const useStyles = makeStyles({
         marginBottom: "5px",
         border:"1px solid grey",
         marginTop:"10px",
-        paddingLeft:"15px"
+        paddingLeft:"15px",
+        '&:hover':{
+            cursor:"pointer"
+        }
     },
     optionComponent2:{
         display: "flex",
@@ -27,19 +30,24 @@ const useStyles = makeStyles({
         marginBottom: "5px",
         border:"1px solid green",
         marginTop:"10px",
-        paddingLeft:"15px"
-        
+        paddingLeft:"15px",
+        '&:hover':{
+            cursor:"pointer"
+        }
 
         
     }
   });
 
-function Option({option}){
+function Option({option, index}){
     const classes = useStyles();
     const {changedOption, setChangedOption} = useContext(QuizContext);
+    useEffect(() => {
+
+    }, [changedOption])
     return(
-        <div className={changedOption ? classes.optionComponent2 : classes.optionComponent} >
-            {changedOption ? <CheckCircleOutlineIcon style={{color:"green"}}/> : <RadioButtonUncheckedIcon style={{color:"#cccccc"}}/>
+        <div className={changedOption[index] ? classes.optionComponent2 : classes.optionComponent} >
+            {changedOption[index] ? <CheckCircleOutlineIcon style={{color:"green"}}/> : <RadioButtonUncheckedIcon style={{color:"#cccccc"}}/>
              }
             <p style={{marginLeft:"20px"}}>{option}</p>
         </div>

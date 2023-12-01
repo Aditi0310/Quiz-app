@@ -17,14 +17,15 @@ import "react-circular-progressbar/dist/styles.css";
 // Radial separators
 //import RadialSeparators from "./RadialSeparators";
 
-const percentage = 66;
+
 const text = 1;
-const App = ({index, circleRatio, rot, width}) => {
+const App = ({index, circleRatio, rot, width, type, percent}) => {
+    const percentage = (index+1)/5 * 100;
   return(
 
     
     <div style={{width:width}}>
-      <CircularProgressbar value={percentage} text={`${index+1}/5`} background backgroundPadding={6} 
+      <CircularProgressbar value={percent ? percent : percentage} text={type=="result" ? `${percent}%` : `${index+1}/5`} background backgroundPadding={6} 
       circleRatio={circleRatio}
       styles={buildStyles({
           rotation:  rot,
