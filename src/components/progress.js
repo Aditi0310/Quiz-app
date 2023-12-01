@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { render } from "react-dom";
 
 // Import react-circular-progressbar module and styles
@@ -8,9 +8,11 @@ import {
   buildStyles
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { QuizContext } from "../context/context";
 
 const App = ({index, circleRatio, rot, width, type, percent}) => {
-    const percentage = (index+1)/5 * 100;
+    const {questions} = useContext(QuizContext)
+    const percentage = (index+1)/questions.length * 100;
     
   return(
 
