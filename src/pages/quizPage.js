@@ -17,8 +17,10 @@ function App() {
 
    
     const checkCorrect = () => {
+        // check if every selected ans is correct or not, if all of them is not 
+        // correct, it won't count towards scoring point
         let arr = questions[index].answer;
-        let curr_score = 1;
+        
         ans.sort();
         if(ans.length != arr.length) return -1;
         for(let i=0 ; i<arr.length ; i++){
@@ -28,6 +30,7 @@ function App() {
         
     }
     const update = async () => {
+        // updating after button change
         let answer = await checkCorrect();
         console.log("ans-", answer);
         if(answer == 1) setScore(score+1);

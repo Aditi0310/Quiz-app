@@ -8,7 +8,7 @@ import Quiz from './context/context';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Quiz>
-    <App style={{backgroundColor:"black"}}/>
+    <App/>
   </Quiz>
 
 );

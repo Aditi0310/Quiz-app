@@ -1,0 +1,66 @@
+Implemented Features
+
+Home Screen:
+Users can initiate the quiz by clicking the "Start" button.
+This triggers the beginning of the quiz.
+
+
+Question Screen:
+Questions are presented sequentially.
+Optional images are displayed when available.
+Each question has four options for multiple correct answers.
+User must select all correct options for the answer to count.
+
+Report Screen:
+Displays the total number of correct and incorrect answers.
+
+API Integration:
+Utilized Postman mock server for the mock API.
+Implemented API calls for starting the quiz.
+
+Dockerization:
+Dockerized the application for easy deployment and scalability.
+
+Deployment:
+Deployed the app on Netlify for live testing and accessibility.
+
+
+Deployment Details
+
+Live App: https://magenta-scone-f212e5.netlify.app/
+Docker Hub Repository: https://hub.docker.com/r/aditi0310/quiz_app/tags
+GitHub Repository: https://github.com/Aditi0310/Quiz-app
+
+
+Instructions for Testing
+
+Open the [Live App]
+Click on the "Start" button to initiate the quiz.
+Answer each question by selecting the correct options.
+Proceed through all questions.
+Reach the "Report" screen to view the summary of correct and incorrect answers.
+
+
+Local Development
+
+Clone the GitHub Repository:
+
+git clone [Link to GitHub Repository]
+Navigate to the project directory:
+cd [Project Directory]
+
+Install dependencies:
+
+npm install
+npm start
+
+
+Docker Usage
+
+Pull the Docker image from Docker Hub:
+
+docker pull [Docker Hub Repository Link]
+Run the Docker container:
+
+docker run -p [Port]:[Port] -d [Docker Hub Repository Link]
+Access the app at: http://localhost:[Port] in your browser.

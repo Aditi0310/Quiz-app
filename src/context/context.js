@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { createContext } from "react";
 
+//created a context to provide some states all over the child components
 const QuizContext = createContext();
 
 export default function Quiz(props){
@@ -9,13 +10,7 @@ export default function Quiz(props){
     const [questions, setQuestions] = useState([]);
     const [score, setScore] = useState(0);
     const [changedOption, setChangedOption] = useState([false, false, false, false, false]);
-    console.log("ques-", questions);
-    /*let arr = new Array[5];
-    for(let i=0 ; i<5; i++){
-        arr[i] = 0;
-    }
-    const [correctAns, setCorrectAns] = useState(arr);*/
-    //console.log(correctAns);
+    
     return(
         <QuizContext.Provider value={{
             start, exit, setStart, setExit, score, setScore, changedOption, setChangedOption, questions, setQuestions

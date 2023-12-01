@@ -13,7 +13,8 @@ function Result(){
         setScore(0);
     }
 
-    const percentage = score/5 * 100;
+    //calculating final percentage here
+    const percentage = score/questions.length * 100;
     return(
         <div className='quizContainer'>
             <img src={Image1}/>
