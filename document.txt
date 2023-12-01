@@ -27,7 +27,7 @@ Deployed the app on Netlify for live testing and accessibility.
 
 Deployment Details
 
-Live App: https://magenta-scone-f212e5.netlify.app/
+Live App: https://deft-dolphin-919872.netlify.app/
 Docker Hub Repository: https://hub.docker.com/r/aditi0310/quiz_app/tags
 GitHub Repository: https://github.com/Aditi0310/Quiz-app
 
